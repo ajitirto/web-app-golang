@@ -23,10 +23,15 @@ func main() {
 
 	var address  = "localhost:8000"
 	fmt.Println("server started at %s\n", address)
+
+	server := new(http.Server)
+	server.Addr = address
+	
 	err := http.ListenAndServe(address, nil)
+	
 	if err != nil {
 		fmt.Println(err.Error())
-		
+
 	}
 }
 
