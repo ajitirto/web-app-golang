@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Learning html/template Functions</title>
+</head>
+<body>
+    <p>
+        {{html "<h2>Hello</h2>" }}
+    </p>
+    <p>
+    <!-- Operator perbandingan -->
+    {{if eq .Name "Aji Tirto Prayogo"}}
+        <p>I am a Spiderman</p>
+    {{else if ne .Name "paijo"}}
+        <p>I am neither Spiderman or thor</p>
+    {{end}}
+    <!-- Pemanggilan method -->
+    <p>
+        {{ .SayHello "Refactory ID" "Your are my hope !"}}
+    </p>
+    <p>
+        <!-- fungsi string -->
+        {{printf "%s because i'm %s" "You know whay" "Spiderman!"}}
+    </p>
+    <p>
+        <!-- fungsi len dan index -->
+        <!-- Spiderman have many friends, {{len . Friends}} of them are:
+        {{index .Friends 0}},
+        {{index .Friends 1}}, and
+        {{index .Friends 2}} -->
+        {{index .Friends 0}},
+        {{index .Friends 1}}, and
+        {{index .Friends 2}} 
+
+    </p>
+    {{$cond1 := true}}
+    {{$cond2 := false }}
+
+    {{if or $cond1 $cond2}}
+        <p>Be like spiderman</p>
+    {{end}}
+    
+
+    
+</body>
+</html>
