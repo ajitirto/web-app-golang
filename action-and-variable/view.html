@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Belajar action and variable in golang</title>
+</head>
+<body>
+    <table>
+
+        {{/* Example how to use actions*/}}
+        
+        <tr>
+            <td>{{"Name"}}</td>
+            <td>{{.Name}}</td>
+        </tr>
+        <tr>
+            <td>Gender</td>
+            {{$gender  := .Gender}}
+            <td style="text-transform: capitalize;">
+                {{$gender}}
+            </td>
+        </tr>
+        <tr>
+            <td>Hobbies</td>
+            <td>:
+                {{range $index, $elem := .Hobbies}}
+                    {{$elem}}
+                {{end}}
+            </td>
+        </tr>
+        <tr>
+            <td>Affiliation : </td>
+            <td>{{.Info.Affiliation}} ({{.Info.GetAffiliationDetailInfo}})</td>
+        </tr>
+
+        {{with.Info}}
+        <te>
+            <td>Address</td>
+            <td>: {{.Address}}</td>
+        </te>
+        {{end}}
+
+        {{if eq .Name "Aji Tirto Prayogo"}}
+        <tr colspan="2", style="font-weight: bold;">
+            <td>I'am a Spiderman!</td>
+        </tr>
+        {{end}}
+        
+    </table>
+    
+</body>
+</html>
